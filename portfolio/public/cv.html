@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Open Sans", Arial, sans-serif;
+        font-size: 9.5pt;
+        color: #222;
+        background: #fff;
+        padding: 22mm 18mm 18mm 18mm;
+        line-height: 1.45;
+        position: relative;
+      }
+
+      /* Header */
+      .header {
+        text-align: center;
+        margin-bottom: 18px;
+      }
+
+      .header h1 {
+        font-family: "Open Sans", sans-serif;
+        font-size: 22pt;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #111;
+        margin-bottom: 6px;
+      }
+
+      .contact-bar {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px 14px;
+        font-size: 8.5pt;
+        color: #333;
+        margin-top: 4px;
+      }
+
+      .contact-bar span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .contact-bar span:not(:last-child)::after {
+        content: "|";
+        margin-left: 14px;
+        color: #888;
+        font-weight: normal;
+      }
+
+      .contact-bar a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      /* Section */
+      .section {
+        margin-bottom: 14px;
+      }
+
+      .section-title {
+        font-family: "Merriweather", Georgia, serif;
+        font-size: 13pt;
+        font-style: italic;
+        font-weight: 400;
+        color: #111;
+        border-bottom: 1.5px solid #888;
+        padding-bottom: 2px;
+        margin-bottom: 8px;
+      }
+
+      /* Profile */
+      .profile-text {
+        text-align: justify;
+        color: #333;
+      }
+
+      /* Skills */
+      .skills-block {
+        color: #333;
+      }
+
+      .skills-block p {
+        margin-bottom: 3px;
+      }
+
+      .skills-block strong {
+        color: #111;
+      }
+
+      /* Experience & Education items */
+      .item {
+        margin-bottom: 10px;
+      }
+
+      .item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 2px;
+      }
+
+      .item-title {
+        font-weight: 700;
+        color: #111;
+        font-size: 9.8pt;
+      }
+
+      .item-company {
+        font-style: italic;
+        color: #444;
+        font-size: 9pt;
+      }
+
+      .item-date {
+        font-style: italic;
+        color: #555;
+        font-size: 8.5pt;
+        white-space: nowrap;
+      }
+
+      .item-desc {
+        margin-top: 3px;
+        color: #333;
+        text-align: justify;
+      }
+
+      .item-desc ul {
+        padding-left: 14px;
+      }
+
+      .item-desc ul li {
+        margin-bottom: 2px;
+      }
+
+      .item-sub {
+        font-style: italic;
+        color: #444;
+        font-size: 8.8pt;
+        margin-top: 1px;
+      }
+
+      /* Languages */
+      .lang-row {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .lang-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+      }
+
+      .lang-name {
+        font-weight: 600;
+        font-size: 9pt;
+      }
+      .lang-level {
+        font-size: 8pt;
+        color: #555;
+      }
+
+      /* Autres */
+      .autres-list {
+        list-style: none;
+        padding: 0;
+        color: #333;
+      }
+
+      .autres-list li::before {
+        content: "• ";
+        color: #555;
+      }
+
+      .autres-list li {
+        margin-bottom: 2px;
+      }
+
+      .divider {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin: 8px 0;
+      }
+
+      .page-break {
+        break-before: page;
+        padding-top: 22mm;
+      }
+
+      @media print {
+        @page {
+          margin: 0;
+        }
+        body {
+          padding: 15mm 15mm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <div class="header">
+      <h1>Mohamed Boutaba</h1>
+      <div class="contact-bar">
+        <span>28 Rue Hocine Noureddine el-Hamma, 16000 Algiers</span>
+        <span>+213 781 59 99 03</span>
+        <span>
+          <a href="mailto:boutaba.cs@gmail.com">boutaba.cs@gmail.com</a></span
+        >
+        <span>
+          <a href="https://www.linkedin.com/in/mohamed-boutaba-37b448376"
+            >linkedin.com/in/mohamed-boutaba</a
+          ></span
+        >
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="section">
+      <div class="section-title">Profile</div>
+      <p class="profile-text">
+        <strong>Junior Full Stack Developer</strong> specialized in
+        JavaScript technologies (MERN Stack). Holding a Bachelor's degree in
+        Information Systems Engineering (taught in English)
+        and an intensive certification from Code213. Proven expertise through
+        the design of a complex business platform at
+        <strong>NAFTAL SPA</strong>. Master of software architecture,
+        RESTful API design, and database management (PostgreSQL,
+        MongoDB). Passionate about performance optimization and user experience (UX/UI).
+      </p>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section">
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-block">
+        <p>
+          <strong>Primary Stack:</strong> MERN Stack (MongoDB, Express.js,
+          React.js, Node.js)
+        </p>
+        <p><strong>Databases:</strong> PostgreSQL &amp; MySQL</p>
+        <p>
+          <strong>Development:</strong> REST API Development, UI design,
+          relational and NoSQL database management
+        </p>
+        <p><strong>Tools:</strong> Git &amp; GitHub</p>
+        <p>
+          <strong>Soft Skills:</strong> Teamwork |
+          Autonomy | Tech Watch | Project Management | Collaboration
+        </p>
+        <p>
+          <strong>Languages:</strong> Arabic (Native), French
+          (Fluent), English (Intermediate)
+        </p>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <div class="section-title">Professional Experience</div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Intern – Full Stack Developer</span>
+          <span class="item-date">February 2026 – May 2026 (4 months)</span>
+        </div>
+        <div class="item-company">NAFTAL SPA, Algiers, Algeria</div>
+        <div class="item-desc">
+          <strong>Project:</strong> Development of a Reception Management
+          Platform for the CMS "CHERIF HAMANI" of Naftal. <br /><br />
+          <ul>
+            <li>
+              <strong>Full Stack Development:</strong> Architecture of reactive
+              interfaces with <strong>React.js</strong> and implementation of
+              server-side business logic with <strong>Node.js</strong> and
+              <strong>Express.js</strong>.
+            </li>
+            <li>
+              <strong>Databases:</strong> Relational schema modeling and data
+              management with <strong>PostgreSQL</strong>, query optimization
+              for performance.
+            </li>
+            <li>
+              <strong>API Design:</strong> Creation of
+              <strong>RESTful APIs</strong> secured for seamless communication
+              between front-end and back-end.
+            </li>
+            <li>
+              <strong>Methodologies:</strong> Use of <strong>Git</strong> for
+              versioning and adherence to <strong>Software Engineering</strong>
+              best practices.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="section page-break">
+      <div class="section-title">Certifications</div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title"
+            >Full Stack JavaScript Certification – Full Stack Web
+            Development</span
+          >
+          <span class="item-date">December 2025 – June 2026</span>
+        </div>
+        <div class="item-company">Code213, Algiers</div>
+        <div class="item-desc">
+          Intensive Full Stack JavaScript training focused on mastering modern
+          web technologies. Acquisition of advanced skills in front-end and
+          back-end development, robust architecture design, and full lifecycle
+          management of web projects.
+          <br /><br />
+          <strong>Curriculum:</strong>
+          <ul>
+            <li>
+              Introduction to Web Development, HTML5, CSS3 (Layout &
+              Responsive web)
+            </li>
+            <li>Git & GitHub (Advanced Workflows)</li>
+            <li>Algorithms & JavaScript (DOM, ES6+)</li>
+            <li>
+              ReactJS Framework: JSX, Props, State, React Router, Redux,
+              API Consumption
+            </li>
+            <li>Back-end with NodeJS & ExpressJS</li>
+            <li>
+              NoSQL Databases: MongoDB & Mongoose (Entity-relationship)
+            </li>
+            <li>RESTful API Development & Deployment (Hosting)</li>
+          </ul>
+          <strong>Final Project (HUBROBE):</strong> Development of a complete
+          E-commerce platform including a client site and an admin dashboard.
+          Integration of payment methods, total management via admin interface,
+          and advanced authentication security.
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section">
+      <div class="section-title">Education</div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title"
+            >Bachelor's Degree – Information Systems and Software Engineering</span
+          >
+          <span class="item-date">September 2023 – May 2026</span>
+        </div>
+        <div class="item-company">
+          University of Algiers 1 Benyoucef Benkhedda, Algiers
+        </div>
+        <div class="item-sub">Grade: Good</div>
+        <div class="item-desc">
+          In-depth academic curriculum focused on complex information systems
+          design, software engineering, and innovative technology solutions
+          development. This training allowed me to acquire a solid foundation in
+          algorithms, system architecture, and large-scale IT project
+          management.
+          <br /><br />
+          <strong>Final Project:</strong> Development of a Reception Management
+          Platform for the CMS "CHERIF HAMANI" of Naftal.
+          <br />
+          <strong>Key Modules:</strong> Software Engineering, Web Development,
+          Cybersecurity, Distributed Information Systems, Databases,
+          Networking, Information Systems (IS).
+          <br />
+          <em>Instruction language: English</em>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title"
+            >Technical Math Baccalaureate – Electrical Engineering Speciality
+            (Independent Candidate)</span
+          >
+          <span class="item-date">June 2023</span>
+        </div>
+        <div class="item-sub">Grade: Very Good</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title"
+            >Technical Math Baccalaureate – Electrical Engineering Speciality</span
+          >
+          <span class="item-date">June 2022</span>
+        </div>
+        <div class="item-company">
+          Arroudj and Kheïreddine Barberousse High School, Algiers
+        </div>
+        <div class="item-sub">Grade: Very Good</div>
+      </div>
+    </div>
+
+    <!-- INTERESTS -->
+    <div class="section">
+      <div class="section-title">Interests</div>
+      <ul class="autres-list">
+        <li>
+          <strong>Open Source & Projects:</strong> Developing personal projects
+          and exploring new technologies on GitHub.
+        </li>
+        <li>
+          <strong>Tech Watch:</strong> Constant monitoring of framework
+          evolutions (React, Node.js) and Web 3.0 trends.
+        </li>
+        <li>
+          <strong>Competition & Collaboration:</strong> Interest in hackathons
+          and programming challenges.
+        </li>
+        <li>
+          <strong>Design & UX:</strong> Particular sensitivity for user
+          interface and user experience (UI/UX Design).
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
