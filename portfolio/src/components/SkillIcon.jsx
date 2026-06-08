@@ -54,10 +54,10 @@ const brandSlugs = {
 const lucideIcons = {
   "Responsive Design": MonitorSmartphone,
   "API REST": Braces,
-  "Esprit d'équipe": Users,
-  Autonomie: User,
-  "Gestion de projet": Briefcase,
-  "Veille technologique": Radar,
+  "Teamwork": Users,
+  "Autonomy": User,
+  "Project Management": Briefcase,
+  "Tech Watch": Radar,
 };
 
 export default function SkillIcon({ skill, size = 16, className = "" }) {
