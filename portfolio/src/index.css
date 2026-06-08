@@ -6,20 +6,60 @@
   :root {
     --background: #ffffff;
     --surface: #f5f5f7;
+    --card: #ffffff;
     --primary: #0071e3;
+    --primary-hover: #0077ed;
+    --on-primary: #ffffff;
     --accent: #2997ff;
     --text: #1d1d1f;
     --text-muted: #6e6e73;
+    --divider: #d2d2d7;
+    --particle: #0071e3;
+  }
+
+  .dark {
+    --background: #0071e3;
+    --surface: #0066cc;
+    --card: #0066cc;
+    --primary: #ffffff;
+    --primary-hover: #f0f0f5;
+    --on-primary: #0071e3;
+    --accent: #cce4ff;
+    --text: #ffffff;
+    --text-muted: #b3d9ff;
+    --divider: #2997ff;
+    --particle: #ffffff;
   }
 
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: initial;
+  }
+
+  html, body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
   }
 
   body {
     background-color: var(--background);
     color: var(--text);
     font-family: theme('fontFamily.sans');
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 

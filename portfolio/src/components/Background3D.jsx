@@ -1,18 +1,18 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
+import { useTheme } from "../context/ThemeContext";
 
-function ParticleField(props) {
+function ParticleField({ color, ...props }) {
   const ref = useRef();
-  const [sphere] = useState(() => {
+  const sphere = useMemo(() => {
     const data = random.inSphere(new Float32Array(5000), { radius: 1.5 });
-    // Vérifier s'il y a des valeurs NaN et les remplacer par 0
     for (let i = 0; i < data.length; i++) {
       if (isNaN(data[i])) data[i] = 0;
     }
     return data;
-  });
+  }, []);
 
   useFrame((state, delta) => {
     ref.current.rotation.x -= delta / 10;
@@ -30,7 +30,7 @@ function ParticleField(props) {
       >
         <PointMaterial
           transparent
-          color="#0071E3"
+          color={color}
           size={0.005}
           sizeAttenuation={true}
           depthWrite={false}
@@ -41,10 +41,13 @@ function ParticleField(props) {
 }
 
 export default function Background3D() {
+  const { isDark } = useTheme();
+  const particleColor = isDark ? "#ffffff" : "#0071e3";
+
   return (
     <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
       <Canvas camera={{ position: [0, 0, 1] }}>
-        <ParticleField />
+        <ParticleField color={particleColor} />
       </Canvas>
     </div>
   );

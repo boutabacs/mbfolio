@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Moon, Sun } from 'lucide-react'
 import { navLinks } from '../data'
+import { useTheme } from '../context/ThemeContext'
+import { useLenis } from 'lenis/react'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { isDark, toggleTheme } = useTheme()
+  const lenis = useLenis()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -16,22 +20,31 @@ export default function Navbar() {
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden'
+      lenis?.stop()
     } else {
       document.body.style.overflow = 'unset'
+      lenis?.start()
     }
-  }, [open])
+  }, [open, lenis])
 
   const handleNav = (href) => {
     setOpen(false)
-    const element = document.querySelector(href)
-    if (element) {
-      const offset = 80 // height of navbar
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - offset
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
+    if (lenis) {
+      lenis.scrollTo(href, {
+        offset: -80,
+        duration: 1.5,
       })
+    } else {
+      const element = document.querySelector(href)
+      if (element) {
+        const offset = 80 // height of navbar
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - offset
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+      }
     }
   }
 
@@ -49,7 +62,11 @@ export default function Navbar() {
           className="text-xl font-bold tracking-tighter text-foreground group"
           onClick={(e) => {
             e.preventDefault()
-            window.scrollTo({ top: 0, behavior: 'smooth' })
+            if (lenis) {
+              lenis.scrollTo(0, { duration: 1.5 })
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }
             setOpen(false)
           }}
         >
@@ -57,19 +74,37 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-10">
-          {navLinks.map((l) => (
-            <li key={l.label}>
-              <button
-                onClick={() => handleNav(l.href)}
-                className="text-sm font-medium text-muted hover:text-primary transition-all duration-300 relative group"
-              >
-                {l.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </button>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden md:flex items-center gap-6">
+          <ul className="flex items-center gap-10">
+            {navLinks.map((l) => (
+              <li key={l.label}>
+                <button
+                  onClick={() => handleNav(l.href)}
+                  className="text-sm font-medium text-muted hover:text-primary transition-all duration-300 relative group"
+                >
+                  {l.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </button>
+              </li>
+            ))}
+          </ul>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-xl text-muted hover:text-primary hover:bg-surface transition-all duration-300"
+            aria-label={isDark ? 'Activer le mode jour' : 'Activer le mode nuit'}
+          >
+            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+        </div>
+
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-xl text-muted hover:text-primary hover:bg-surface transition-all duration-300 z-[110]"
+            aria-label={isDark ? 'Activer le mode jour' : 'Activer le mode nuit'}
+          >
+            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
 
         {/* Hamburger Button */}
         <button
@@ -81,6 +116,7 @@ export default function Navbar() {
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
+        </div>
       </nav>
 
       {/* Mobile Menu Overlay */}

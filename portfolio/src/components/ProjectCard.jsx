@@ -2,7 +2,7 @@ import { ExternalLink, Github } from 'lucide-react'
 
 export default function ProjectCard({ title, desc, tags, image, github, demo }) {
   return (
-    <div className="bg-white border border-divider rounded-2xl overflow-hidden flex flex-col hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 hover:border-primary transition-all duration-300 group">
+    <div className="bg-card border border-divider rounded-2xl overflow-hidden flex flex-col hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 hover:border-primary transition-all duration-300 group">
       {image && (
         <div className="aspect-video overflow-hidden border-b border-divider relative">
           <img
@@ -16,7 +16,7 @@ export default function ProjectCard({ title, desc, tags, image, github, demo }) 
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-white rounded-full text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-lg"
+                className="p-3 bg-card rounded-full text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg"
                 title="Code source"
               >
                 <Github size={20} />
@@ -27,7 +27,7 @@ export default function ProjectCard({ title, desc, tags, image, github, demo }) 
                 href={demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-white rounded-full text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-lg"
+                className="p-3 bg-card rounded-full text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg"
                 title="Démo en direct"
               >
                 <ExternalLink size={20} />
@@ -47,7 +47,7 @@ export default function ProjectCard({ title, desc, tags, image, github, demo }) 
           {tags.map((tag) => (
             <span
               key={tag}
-              className="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md bg-gray-100 text-muted font-bold group-hover:bg-primary group-hover:text-white transition-all duration-300"
+              className="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md bg-surface text-muted font-bold group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
             >
               {tag}
             </span>

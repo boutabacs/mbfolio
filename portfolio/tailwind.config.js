@@ -1,22 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
-        canvas: '#FFFFFF',
-        surface: '#F5F5F7',
+        canvas: 'var(--background)',
+        surface: 'var(--surface)',
+        card: 'var(--card)',
         primary: {
-          DEFAULT: '#0071E3',
-          hover: '#0077ED',
+          DEFAULT: 'var(--primary)',
+          hover: 'var(--primary-hover)',
+          foreground: 'var(--on-primary)',
         },
-        accent: '#2997FF',
-        foreground: '#1D1D1F',
-        muted: '#6E6E73',
-        divider: '#D2D2D7',
+        accent: 'var(--accent)',
+        foreground: 'var(--text)',
+        muted: 'var(--text-muted)',
+        divider: 'var(--divider)',
+        particle: 'var(--particle)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease forwards',

@@ -1,9 +1,17 @@
 import { ArrowDown, Download } from "lucide-react";
 import Background3D from "../components/Background3D";
+import { useLenis } from "lenis/react";
 
 export default function Hero() {
-  const scrollToAbout = () =>
-    document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
+  const lenis = useLenis();
+
+  const scrollToAbout = () => {
+    if (lenis) {
+      lenis.scrollTo("#about", { offset: -80, duration: 1.5 });
+    } else {
+      document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
@@ -29,7 +37,7 @@ export default function Hero() {
             href="/cv.html"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-hover text-white rounded-xl font-medium text-sm transition-colors shadow-lg shadow-primary/20"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-hover text-primary-foreground rounded-xl font-medium text-sm transition-colors shadow-lg shadow-primary/20"
           >
             <Download size={16} />
             Download My CV
