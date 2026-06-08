@@ -21,7 +21,7 @@ export default function Hero() {
         <p className="text-primary font-medium text-sm tracking-widest uppercase mb-4">
           Hello, I am Mohamed
         </p>
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-tight mb-6">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-foreground leading-tight mb-6">
           Full Stack{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
             Developer

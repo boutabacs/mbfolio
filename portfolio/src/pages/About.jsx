@@ -1,8 +1,14 @@
-import { GraduationCap, Award } from 'lucide-react'
-import SectionTitle from '../components/SectionTitle'
-import ProfileImage from '../components/ProfileImage'
-import Reveal from '../components/Reveal'
-import { stats, education, certifications, workingStyle, profile } from '../data'
+import { GraduationCap, Award } from "lucide-react";
+import SectionTitle from "../components/SectionTitle";
+import ProfileImage from "../components/ProfileImage";
+import Reveal from "../components/Reveal";
+import {
+  stats,
+  education,
+  certifications,
+  workingStyle,
+  profile,
+} from "../data";
 
 export default function About() {
   return (
@@ -21,28 +27,37 @@ export default function About() {
               <div className="flex flex-col sm:flex-row gap-8 items-center sm:items-center mb-8">
                 <ProfileImage size="md" />
                 <div className="text-center sm:text-left flex flex-col justify-center">
-                  <h3 className="text-2xl font-bold text-foreground mb-1">{profile.name}</h3>
-                  <p className="text-lg text-primary font-medium">Junior Full Stack Developer</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-1">
+                    {profile.name}
+                  </h3>
+                  <p className="text-lg text-primary font-medium">
+                    Junior Full Stack Developer
+                  </p>
                 </div>
               </div>
               <div className="space-y-4 text-muted leading-relaxed text-sm">
                 <p>
-                  Hello, I am <strong className="text-foreground">{profile.name}</strong>.
-                  {' '}{profile.intro}
+                  Hello, I am{" "}
+                  <strong className="text-foreground">{profile.name}</strong>.{" "}
+                  {profile.intro}
                 </p>
                 {profile.story.map((paragraph) => (
                   <p key={paragraph.slice(0, 40)}>{paragraph}</p>
                 ))}
               </div>
 
-              <div className="grid grid-cols-3 gap-4 mt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
                 {stats.map((s) => (
                   <div
                     key={s.label}
-                    className="bg-surface border border-divider rounded-xl p-4 text-center"
+                    className="bg-surface border border-divider rounded-xl p-4 text-center hover:border-primary/30 transition-colors"
                   >
-                    <p className="text-lg font-bold text-primary">{s.value}</p>
-                    <p className="text-xs text-muted mt-1">{s.label}</p>
+                    <p className="text-2xl font-bold text-primary sm:text-3xl">
+                      {s.value}
+                    </p>
+                    <p className="text-[10px] sm:text-xs text-muted mt-1 uppercase tracking-widest font-semibold">
+                      {s.label}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -56,13 +71,17 @@ export default function About() {
                   <GraduationCap size={18} className="text-primary" />
                   Education
                 </div>
-                <h4 className="font-semibold text-foreground">{education.degree}</h4>
+                <h4 className="font-semibold text-foreground">
+                  {education.degree}
+                </h4>
                 <p className="text-sm text-accent mt-0.5">{education.school}</p>
                 <p className="text-xs text-muted mt-1">
                   {education.period} · {education.location}
                 </p>
                 {education.honor && (
-                  <p className="text-xs text-muted mt-1 italic">{education.honor}</p>
+                  <p className="text-xs text-muted mt-1 italic">
+                    {education.honor}
+                  </p>
                 )}
               </div>
 
@@ -98,7 +117,9 @@ export default function About() {
                   <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <span className="text-primary text-sm font-bold">✦</span>
                   </div>
-                  <h4 className="font-semibold text-foreground mb-2 text-sm">{w.title}</h4>
+                  <h4 className="font-semibold text-foreground mb-2 text-sm">
+                    {w.title}
+                  </h4>
                   <p className="text-xs text-muted leading-relaxed">{w.desc}</p>
                 </div>
               ))}
@@ -107,5 +128,5 @@ export default function About() {
         </Reveal>
       </div>
     </section>
-  )
+  );
 }

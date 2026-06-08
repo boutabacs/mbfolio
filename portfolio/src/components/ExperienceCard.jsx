@@ -1,6 +1,6 @@
 export default function ExperienceCard({ company, role, period, bullets }) {
   return (
-    <div className="relative pl-8 pb-10 last:pb-0">
+    <div className="relative pl-6 sm:pl-8 pb-10 last:pb-0">
       <div className="absolute left-0 top-1.5 bottom-0 w-px bg-divider last:hidden" />
       <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-canvas" />
       <div className="bg-surface border border-divider rounded-2xl p-6">

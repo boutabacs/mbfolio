@@ -21,7 +21,7 @@ export const profile = {
 
 export const stats = [
   { label: "Experience", value: "4 months" },
-  { label: "Projects", value: "2 completed" },
+  { label: "Projects", value: "3 completed" },
   { label: "Focus", value: "MERN Stack" },
 ];
 
@@ -122,6 +122,14 @@ export const projects = [
     image: "/assets/hubrobe.png",
     github: "https://github.com/boutabacs/hubrobe.git",
     demo: "https://final-project-mu-three.vercel.app/",
+  },
+  {
+    title: "Hubrobe Admin Dashboard",
+    desc: "A powerful admin interface for managing the Hubrobe e-commerce platform. Features include real-time analytics, product inventory management, order tracking, and customer insights.",
+    tags: ["React.js", "Tailwind CSS", "Recharts", "Lucide React", "Dashboard"],
+    image: "/assets/admin-dashboard.png",
+    github: "https://github.com/boutabacs/hubrobe.git",
+    demo: "https://final-project-x41r.vercel.app/",
   },
 ];
 

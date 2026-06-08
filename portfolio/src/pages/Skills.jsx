@@ -29,7 +29,7 @@ export default function Skills() {
               <button
                 key={cat.label}
                 onClick={() => setActiveCategory(cat.label)}
-                className={`px-8 py-2.5 rounded-md text-sm font-medium transition-all duration-300 ${
+                className={`px-4 sm:px-8 py-2.5 rounded-md text-sm font-medium transition-all duration-300 ${
                   activeCategory === cat.label
                     ? "bg-card text-foreground shadow-sm"
                     : "text-muted hover:text-foreground"
@@ -42,12 +42,10 @@ export default function Skills() {
         </Reveal>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {activeSkills.map((skill, index) => (
             <Reveal key={skill} width="100%" delay={index * 0.1}>
-              <div
-                className="group relative flex flex-col items-center justify-center p-8 bg-card border border-transparent rounded-xl transition-all duration-300 hover:bg-primary hover:shadow-xl cursor-default"
-              >
+              <div className="group relative flex flex-col items-center justify-center p-4 sm:p-8 bg-card border border-transparent rounded-xl transition-all duration-300 hover:bg-primary hover:shadow-xl cursor-default">
                 <div className="mb-4 transition-transform duration-300 group-hover:scale-110">
                   <SkillIcon
                     skill={skill}
